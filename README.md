@@ -5,7 +5,7 @@ Media catalog and video player for home NAS.
 
 ## Requirements
 * PHP 7.1+ (CLI)
-* MbString
+* php-mbstring, php-pdo-sqlite, php-curl
 * FFMpeg
 
 ## Installation
