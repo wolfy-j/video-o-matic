@@ -31,8 +31,8 @@ $ ./spiral serve -v -d
 ```
 
 You can access media catalog using `http://localhost:8080` (port can be changed in `.rr.yaml`).
-Server will start indexation job of your downloads directory on first run. Refresh page
-again to view the list of available videos.
+
+> Server will start indexation job of your downloads directory on first run. Refresh page again to view the list of available videos.
 
 License:
 --------
