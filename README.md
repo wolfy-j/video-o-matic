@@ -1,5 +1,5 @@
 # Video Gate
-Media catalog and video player for home NAS. Automatically converts video into mp4 format to play on Smart TVs.
+Simple media catalog and video player for home NAS. Automatically converts video into mp4 format to play on Smart TVs.
 
 ![Screenshot_16](https://user-images.githubusercontent.com/796136/58380420-79c2d600-7fb9-11e9-8ede-5320c732480f.png)
 
