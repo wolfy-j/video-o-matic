@@ -20,8 +20,7 @@ $ php app.php migrate:init && php app.php migrate && php app.php update
 To run database migrations:
 
 
-Configure the location of downloads directory (NSF and Samba drives are supported) by
-copying `.env.sample` and setting `DOWNLOADS_DIR` value.
+Configure the location of downloads directory (NSF and Samba drives are supported) by copying `.env.sample` to `.env` and setting `DOWNLOADS_DIR` value.
 
 ```dotenv
 DOWNLOADS_DIR = /mnt/nas/video-downloads/
