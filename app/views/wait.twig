@@ -1,0 +1,18 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+    <h3 class="float-right yellow">{{ play.audio.language }}</h3>
+    <h3>{{ play.video.filename | basename }}</h3>
+
+    <div class="progress" style="height: 75px;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated"
+             role="progressbar" aria-valuenow="{{ play.ready }}"
+             aria-valuemin="0" aria-valuemax="100" style="width: {{ play.ready }}%;"></div>
+    </div>
+
+    <script type="text/javascript">
+        setTimeout(function () {
+            location.reload();
+        }, 500);
+    </script>
+{% endblock %}

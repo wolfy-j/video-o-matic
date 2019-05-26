@@ -1,0 +1,30 @@
+body {
+    background-color: #151515;
+    color: #f1f1f1;
+    padding: 20px;
+}
+
+div.videos {
+
+}
+
+div.videos div.video {
+    background-color: #434343;
+    margin: 10px;
+    color: #f1f1f1;
+}
+
+div.videos div.video .duration {
+    color: #fbc00f;
+}
+
+
+div.videos div.video:hover {
+    background-color: #404e3c;
+}
+
+.video-js {
+    position: relative !important;
+    width: 80% !important;
+    height: auto !important;
+}

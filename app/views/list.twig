@@ -1,0 +1,41 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+    <div class="videos">
+        {% for video in videos %}
+            <div class="card video">
+                <div class="card-body">
+                    <h5 class="card-title float-right text-muted">
+                        {{ video.title }}
+                    </h5>
+                    <h5 class="card-title">
+                        {{ video.filename | basename }}
+                    </h5>
+
+                    <h6 class="card-subtitle duration">
+                        {{ video.duration | duration }} <span style="color: #2c7cff">{{ video.size | filesize }}</span>
+                    </h6>
+                    <div class="card-subtitle float-right">
+                        <form action="/play/" method="get">
+                            <input type="hidden" name="id" value="{{ video.id }}"/>
+                            {% if video.audio()|length > 1 %}
+                                <div class="input-group">
+                                    <select class="form-control input-group-prepend" name="audio">
+                                        {% for stream in video.audio() %}
+                                            <option value="{{ stream.index }}">
+                                                {{ stream.title }}{{ stream.title ? ' [' : '' }}{{ stream.language }}{{ stream.title ? ']' : '' }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input class="btn btn-primary" type="submit" value="PLAY"/>
+                                </div>
+                            {% else %}
+                                <input class="btn btn-primary" type="submit" value="PLAY"/>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

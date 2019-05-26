@@ -1,0 +1,18 @@
+{% extends "layout/base.twig" %}
+
+{% block body %}
+    <link href="https://vjs.zencdn.net/7.5.4/video-js.css" rel="stylesheet">
+
+    <div class="float-right">
+        <a class="btn btn-secondary" href="/">BACK</a>
+    </div>
+    <h3>{{ play.video.filename | basename }} ({{ play.audio.language }})</h3>
+
+    <div style="padding-left: 20%; padding-top: 1%;">
+        <video class='video-js vjs-default-skin' controls preload='auto' width='90%'>
+            <source src='/output/play.mp4?{{ play.id }}' type='video/mp4'>
+        </video>
+    </div>
+
+    <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
+{% endblock %}
