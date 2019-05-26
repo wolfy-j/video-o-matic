@@ -17,9 +17,7 @@ $ php app.php configure && ./vendor/bin/spiral get
 $ php app.php migrate:init && php app.php migrate && php app.php update
 ```
 
-To run database migrations:
-
-
+## Configuration
 Configure the location of downloads directory (NSF and Samba drives are supported) by copying `.env.sample` to `.env` and setting `DOWNLOADS_DIR` value.
 
 ```dotenv
