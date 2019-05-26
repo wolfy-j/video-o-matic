@@ -11,11 +11,8 @@ To install download the repo content and run following sequence:
 
 ```
 $ composer update
-$ ./vendor/bin/spiral get
-$ php app.php configure
-$ php app.php migrate:init
-$ php app.php migrate
-$ php app.php update
+$ php app.php configure && ./vendor/bin/spiral get 
+$ php app.php migrate:init && php app.php migrate && php app.php update
 ```
 
 To run database migrations:
