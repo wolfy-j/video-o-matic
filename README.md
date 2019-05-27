@@ -6,7 +6,7 @@ Simple media catalog and video player for home NAS. Automatically converts video
 ## Requirements
 * PHP 7.1+ (CLI)
 * php-mbstring, php-pdo-sqlite, php-curl
-* FFMpeg
+* ffmpeg
 
 ## Installation
 To install download the repo content and run following sequence:
@@ -16,13 +16,7 @@ $ composer update
 $ php app.php install
 ```
 
-## Configuration
-Configure the location of downloads directory (NSF and Samba drives are supported) by copying `.env.sample` to `.env` and setting `DOWNLOADS_DIR` value.
-
-```dotenv
-DOWNLOADS_DIR = /mnt/nas/video-downloads/
-```
-
+## Starting Application
 To download application server:
 
 ```
