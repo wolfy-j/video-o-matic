@@ -39,24 +39,23 @@ class InstallCommand extends Command
         );
 
         if (!$directory = $helper->ask($this->input, $this->output, $question)) {
+            $this->sprintf("<error>Please specify the directory.</error>\n");
             return;
         }
 
         if (!$files->isDirectory($directory)) {
-            $this->sprintf("<error>No such directory `%s`</error>", $directory);
+            $this->sprintf("<error>No such directory `%s`</error>\n", $directory);
             return;
         }
 
-        $console->run("configure", [], $this->output);
-        $console->run("migrate:init", [], $this->output);
-        $console->run("migrate", [], $this->output);
-        $console->run("update", [], $this->output);
-
         // configure the env
-        $env = $files->read('.env.sample');
-        $env = str_replace('{downloads-directory}', $directory, $env);
-        $files->write('.env', $env);
+        $envData = $files->read('.env.sample');
+        $envData = str_replace('{downloads-directory}', $directory, $envData);
+        $files->write('.env', $envData);
 
         $console->run("encrypt:key", ['-m' => '.env'], $this->output);
+
+        $console->run("configure", [], $this->output);
+        $console->run("cycle:sync", [], $this->output);
     }
 }

@@ -11,40 +11,24 @@
   "require": {
     "php": ">=7.1",
     "spiral/framework": "^2.0",
-    "spiral/logger": "^1.1",
     "spiral/debug": "^1.3",
     "spiral/snapshots": "^1.0",
     "spiral/console": "^1.2",
     "spiral/jobs": "^1.1",
     "spiral/http": "^1.1",
     "spiral/router": "^1.1",
-    "spiral/session": "^1.1",
     "spiral/roadrunner": "^1.4",
-    "spiral/translator": "^1.2",
     "spiral/encrypter": "^1.1",
-    "spiral/security": "^2.1",
-    "spiral/validation": "^1.2",
     "spiral/filters": "^1.2",
     "spiral/database": "^2.3",
-    "spiral/migrations": "^2.0",
     "cycle/orm": "^1.0",
     "cycle/annotated": "^1.0",
-    "cycle/migrations": "^1.0",
-    "spiral/monolog-bridge": "^1.0",
     "spiral/twig-bridge": "^1.0",
     "spiral/dotenv-bridge": "^1.0",
     "php-ffmpeg/php-ffmpeg": "^0.14.0",
     "khill/php-duration": "~1.0",
     "symfony/process": "^4.2",
     "spiral/helpers": "^1.0"
-  },
-  "scripts": {
-    "post-create-project-cmd": [
-      "php -r \"copy('.env.sample', '.env');\"",
-      "php app.php encrypt:key -m .env",
-      "php app.php configure -vv",
-      "spiral get-binary"
-    ]
   },
   "autoload": {
     "psr-4": {

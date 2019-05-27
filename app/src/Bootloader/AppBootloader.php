@@ -11,12 +11,11 @@ namespace App\Bootloader;
 
 use App\Twig\Filters;
 use Spiral\Boot\Bootloader\Bootloader;
-use Spiral\Bootloader\ConsoleBootloader;
 use Spiral\Twig\Bootloader\TwigBootloader;
 
 class AppBootloader extends Bootloader
 {
-    public function boot(ConsoleBootloader $console, TwigBootloader $twig)
+    public function boot(TwigBootloader $twig)
     {
         $twig->addExtension(Filters::class);
     }
