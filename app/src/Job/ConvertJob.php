@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace App\Job;
 
 use App\Database\Repository\PlayRepository;
-use App\Downloads\Convert;
+use App\Video\Convert;
 use Spiral\Jobs\AbstractJob;
 
 class ConvertJob extends AbstractJob

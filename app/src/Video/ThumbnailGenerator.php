@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Downloads;
+namespace App\Video;
 
 use App\Config\AppConfig;
 

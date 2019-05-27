@@ -7,12 +7,12 @@
  */
 declare(strict_types=1);
 
-namespace App\Downloads;
+namespace App\Video;
 
 use FFMpeg\Coordinate\Dimension;
 use FFMpeg\FFProbe;
 
-class VideoProbe
+class Probe
 {
     /** @var string */
     private $filename;

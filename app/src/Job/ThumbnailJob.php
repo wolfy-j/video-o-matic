@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace App\Job;
 
 use App\Database\Repository\VideoRepository;
-use App\Downloads\ThumbnailGenerator;
+use App\Video\ThumbnailGenerator;
 use Cycle\ORM\Transaction;
 use Spiral\Jobs\AbstractJob;
 

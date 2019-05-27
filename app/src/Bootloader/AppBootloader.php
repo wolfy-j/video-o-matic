@@ -15,6 +15,9 @@ use Spiral\Twig\Bootloader\TwigBootloader;
 
 class AppBootloader extends Bootloader
 {
+    /**
+     * @param TwigBootloader $twig
+     */
     public function boot(TwigBootloader $twig)
     {
         $twig->addExtension(Filters::class);

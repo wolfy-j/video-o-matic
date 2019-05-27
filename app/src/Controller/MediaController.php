@@ -24,7 +24,7 @@ use Spiral\Http\Uri;
 use Spiral\Jobs\QueueInterface;
 use Spiral\Views\ViewsInterface;
 
-class HomeController extends Controller implements SingletonInterface
+class MediaController extends Controller implements SingletonInterface
 {
     /** @var ViewsInterface */
     private $views;
@@ -60,7 +60,7 @@ class HomeController extends Controller implements SingletonInterface
      * @param VideoRepository $repository
      * @return ResponseInterface
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
     public function playAction(
         PlayRequest $request,

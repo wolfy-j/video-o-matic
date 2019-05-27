@@ -10,7 +10,7 @@ namespace App\Job;
 
 use App\Database\Stream;
 use App\Database\Video;
-use App\Downloads\VideoProbe;
+use App\Video\Probe;
 use Codedungeon\PHPCliColors\Color;
 use Cycle\ORM\Transaction;
 use Khill\Duration\Duration;
@@ -28,7 +28,7 @@ class RegisterJob extends AbstractJob
      */
     public function do(string $filename, Transaction $transaction, QueueInterface $queue)
     {
-        $probe = new VideoProbe($filename);
+        $probe = new Probe($filename);
         $this->log($probe);
 
         $video = new Video();
@@ -52,9 +52,9 @@ class RegisterJob extends AbstractJob
     }
 
     /**
-     * @param VideoProbe $reader
+     * @param Probe $reader
      */
-    private function log(VideoProbe $reader)
+    private function log(Probe $reader)
     {
         $duration = new Duration();
 
