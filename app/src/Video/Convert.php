@@ -14,10 +14,11 @@ use App\Database\Play;
 use Codedungeon\PHPCliColors\Color;
 use Cycle\ORM\Transaction;
 use Khill\Duration\Duration;
+use Spiral\Core\Container\SingletonInterface;
 use Spiral\Files\FilesInterface;
 use Symfony\Component\Process\Process;
 
-class Convert
+class Convert implements SingletonInterface
 {
     /** @var FilesInterface */
     private $files;
