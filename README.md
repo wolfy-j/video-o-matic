@@ -13,7 +13,6 @@ To install download the repo content and run following sequence:
 
 ```
 $ composer update
-$ ./vendor/bin/spiral get
 $ php app.php install
 ```
 
@@ -22,6 +21,12 @@ Configure the location of downloads directory (NSF and Samba drives are supporte
 
 ```dotenv
 DOWNLOADS_DIR = /mnt/nas/video-downloads/
+```
+
+To download application server:
+
+```
+$ ./vendor/bin/spiral get
 ```
 
 To start server:
