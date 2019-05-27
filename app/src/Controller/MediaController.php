@@ -17,14 +17,12 @@ use App\Job\IndexJob;
 use App\Request\PlayRequest;
 use Cycle\ORM\Transaction;
 use Psr\Http\Message\ResponseInterface;
-use Spiral\Core\Container\SingletonInterface;
-use Spiral\Core\Controller;
 use Spiral\Http\Response\ResponseWrapper;
 use Spiral\Http\Uri;
 use Spiral\Jobs\QueueInterface;
 use Spiral\Views\ViewsInterface;
 
-class MediaController extends Controller implements SingletonInterface
+class MediaController
 {
     /** @var ViewsInterface */
     private $views;
@@ -42,7 +40,7 @@ class MediaController extends Controller implements SingletonInterface
      * @param VideoRepository $repository
      * @return string
      */
-    public function indexAction(QueueInterface $queue, VideoRepository $repository)
+    public function index(QueueInterface $queue, VideoRepository $repository)
     {
         // index available videos
         $queue->push(new IndexJob());
@@ -62,7 +60,7 @@ class MediaController extends Controller implements SingletonInterface
      *
      * @throws \Throwable
      */
-    public function playAction(
+    public function play(
         PlayRequest $request,
         Transaction $transaction,
         ResponseWrapper $response,
@@ -100,7 +98,7 @@ class MediaController extends Controller implements SingletonInterface
      * @param PlayRepository $repository
      * @return string
      */
-    public function watchAction(string $id, PlayRepository $repository): string
+    public function watch(string $id, PlayRepository $repository): string
     {
         /** @var Play $play */
         $play = $repository->findByPK($id);
