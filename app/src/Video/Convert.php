@@ -74,8 +74,6 @@ class Convert implements SingletonInterface
             }
         });
 
-        // todo: handle error
-
         // complete
         $this->setProgress($play, 100);
     }
@@ -103,6 +101,14 @@ class Convert implements SingletonInterface
      */
     private function getCommand(Play $play): string
     {
+        if (is_null($play->audio)) {
+            return sprintf(
+                "ffmpeg -i %s -c:a copy -c:v copy -map 0:0 %s 2>&1",
+                escapeshellarg($play->video->filename),
+                escapeshellarg($this->getDirectory() . 'play.mp4')
+            );
+        }
+
         return sprintf(
             "ffmpeg -i %s -c:a copy -c:v copy -map 0:0 -map 0:%s %s 2>&1",
             escapeshellarg($play->video->filename),

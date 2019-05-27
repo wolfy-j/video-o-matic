@@ -83,6 +83,10 @@ class MediaController
             })->first();
         }
 
+        if ($play->audio === false) {
+            $play->audio = null;
+        }
+
         $transaction->persist($play)->run();
         $queue->push(new ConvertJob([
             'playID' => $play->id

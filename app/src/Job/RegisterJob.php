@@ -14,6 +14,7 @@ use App\Video\Probe;
 use Codedungeon\PHPCliColors\Color;
 use Cycle\ORM\Transaction;
 use Khill\Duration\Duration;
+use Spiral\Database\Exception\DatabaseException;
 use Spiral\Jobs\AbstractJob;
 use Spiral\Jobs\QueueInterface;
 
@@ -28,7 +29,12 @@ class RegisterJob extends AbstractJob
      */
     public function do(string $filename, Transaction $transaction, QueueInterface $queue)
     {
-        $probe = new Probe($filename);
+        try {
+            $probe = new Probe($filename);
+        } catch (\Throwable $e) {
+            error_log("Invalid video file `{$filename}`");
+        }
+
         $this->log($probe);
 
         $video = new Video();
@@ -47,7 +53,12 @@ class RegisterJob extends AbstractJob
             $video->streams->add($stream);
         }
 
-        $transaction->persist($video)->run();
+        try {
+            $transaction->persist($video)->run();
+        } catch (DatabaseException $e) {
+            error_log("Invalid video file `{$filename}`");
+        }
+
         $queue->push(new ThumbnailJob(compact('filename')));
     }
 

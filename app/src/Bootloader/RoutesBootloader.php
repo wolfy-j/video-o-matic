@@ -54,7 +54,7 @@ class RoutesBootloader extends Bootloader
         );
 
         return $route->withDefaults([
-            'controller' => 'home',
+            'controller' => 'media',
             'action'     => 'index'
         ]);
     }
