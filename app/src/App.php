@@ -37,7 +37,6 @@ class App extends Kernel
         // HTTP extensions
         Bootloader\Http\RouterBootloader::class,
         Bootloader\Http\ErrorHandlerBootloader::class,
-        Bootloader\Http\CookiesBootloader::class,
         Bootloader\Http\PaginationBootloader::class,
 
         // Database and ORM
